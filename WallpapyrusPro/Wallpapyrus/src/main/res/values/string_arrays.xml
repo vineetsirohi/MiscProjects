@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="clock_types">
+        <item>@string/no_clock</item>
+        <item>@string/default_clock</item>
+    </string-array>
+    <string-array name="clock_types_entries">
+        <item>no_clock</item>
+        <item>default_clock</item>
+    </string-array>
+    
+    <string-array name="wallpaper_types">
+        <item>@string/image</item>
+        <item>@string/color</item>
+    </string-array>
+    <string-array name="wallpaper_types_entries">
+        <item>image</item>
+        <item>color</item>
+    </string-array>
+</resources>

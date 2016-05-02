@@ -1,0 +1,75 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="in.vineetsirohi.wallpapyrus_lite.pro"
+    android:versionCode="7"
+    android:versionName="1.5">
+
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19" />
+    <uses-feature android:name="android.software.live_wallpaper" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application android:name="in.vineetsirohi.wallpapyrus_lite.pro.MyApplication"
+            android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:theme="@style/AppTheme">
+        <service
+                android:name=".MyWallpaperService"
+                android:enabled="true"
+                android:label="@string/app_name"
+                android:permission="android.permission.BIND_WALLPAPER" >
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" >
+                </action>
+            </intent-filter>
+
+            <meta-data
+                    android:name="android.service.wallpaper"
+                    android:resource="@xml/mywallpaper" >
+            </meta-data>
+        </service>
+
+        <activity
+                android:name="in.vineetsirohi.wallpapyrus_lite.pro.SettingsActivity"
+                android:exported="true"
+                android:label="@string/app_name"
+                android:theme="@android:style/Theme.Light.WallpaperSettings" >
+        </activity>
+        <activity android:name="in.vineetsirohi.wallpapyrus_lite.pro.PickWallpaperActivity" >
+            <intent-filter android:label="Set as Wallpapyrus" >
+                <action android:name="android.intent.action.ATTACH_DATA" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+        <activity android:name="in.vineetsirohi.wallpapyrus_lite.pro.SetWallpaperActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SET_WALLPAPER" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+                android:name="in.vineetsirohi.wallpapyrus_lite.pro.MyWidgetProvider"
+                android:label="@string/widget_name1x1" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                />
+            </intent-filter>
+
+            <meta-data
+                    android:name="android.appwidget.provider"
+                    android:resource="@xml/cutom_widget_info_11" />
+        </receiver>
+    </application>
+
+</manifest>

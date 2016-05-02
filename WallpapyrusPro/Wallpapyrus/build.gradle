@@ -1,0 +1,42 @@
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 23
+    }
+
+    signingConfigs {
+        releaseConfig {
+            storeFile file("C:/Users/vineet/Dropbox/a drive/android/androidapkkeys")
+            storePassword rootProject.storePassword
+            keyAlias rootProject.keyAlias
+            keyPassword rootProject.keyPassword
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),'../proguard.cfg'
+            signingConfig signingConfigs.releaseConfig
+        }
+    }
+    productFlavors {
+        defaultFlavor {
+            proguardFile 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.2.3'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.2.3'
+    compile project(':ColorPicker')
+}

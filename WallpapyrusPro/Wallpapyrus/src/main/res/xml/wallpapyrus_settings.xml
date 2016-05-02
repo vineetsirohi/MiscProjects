@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/settings" >
+    </PreferenceCategory>
+
+    <ListPreference
+        android:defaultValue="image"
+        android:entries="@array/wallpaper_types"
+        android:entryValues="@array/wallpaper_types_entries"
+        android:key="selectWallpaperType"
+        android:title="@string/wallpaper_type" />
+
+    <Preference
+        android:key="selectWallpaper"
+        android:title="@string/select_wallpaper" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="isWallpaperScroll"
+        android:summary="@string/feature_dependent_on_launcher"
+        android:title="@string/scroll_wallpaper" />
+
+    <PreferenceCategory android:title="@string/clock_settings" >
+    </PreferenceCategory>
+
+    <ListPreference
+        android:entries="@array/clock_types"
+        android:entryValues="@array/clock_types_entries"
+        android:key="selectClock"
+        android:title="@string/select_clock" />
+
+    <EditTextPreference
+        android:defaultValue="50"
+        android:key="xAsPercentOfScreenWidth"
+        android:summary="@string/as_percent_of_screen_width"
+        android:title="@string/horizontal_location_as_percent_of_screen_width" />
+    <EditTextPreference
+        android:defaultValue="35"
+        android:key="yAsPercentOfScreenHeight"
+        android:summary="@string/as_percent_of_screen_height"
+        android:title="@string/vertical_location_as_percent_of_screen_height" />
+    <EditTextPreference
+        android:defaultValue="50"
+        android:key="clockScale"
+        android:summary="@string/zero_to_hundred"
+        android:title="@string/scale" />
+
+</PreferenceScreen>
