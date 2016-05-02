@@ -6,8 +6,11 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
+        applicationId "in.vineetsirohi.wallpapyrus_lite.pro"
         minSdkVersion 8
         targetSdkVersion 23
+        versionCode 8
+        versionName "1.6"
     }
 
     signingConfigs {
@@ -20,6 +23,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+        }
         release {
             minifyEnabled true
             shrinkResources true
@@ -28,8 +34,11 @@ android {
         }
     }
     productFlavors {
-        defaultFlavor {
-            proguardFile 'proguard-rules.txt'
+        lite {
+            applicationId "in.vineetsirohi.wallpaper"
+        }
+        production {
+            applicationId "in.vineetsirohi.wallpapyrus_lite.pro"
         }
     }
 }
